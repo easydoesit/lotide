@@ -1,3 +1,11 @@
+const head = function(array) {
+  if (array === undefined) {
+    return `undefined`;
+  }
+
+  return array[0];
+};
+
 //Function Implementation
 const assertEqual = function(actual, expected) {
   //emojies
@@ -19,6 +27,7 @@ const assertEqual = function(actual, expected) {
 
 
 
-//Test Code
-console.log(assertEqual("Lighthouse Labs", "Bootcamp"));
-console.log(assertEqual(1,1));
+console.log(assertEqual(head([5,6,7]),5));
+console.log(assertEqual(head(["Hello", "Lighthouse", "Labs"]),"Hello"));
+console.log(assertEqual(head(),5));
+console.log(assertEqual(head([5]),5));
