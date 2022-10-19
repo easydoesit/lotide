@@ -1,0 +1,23 @@
+{
+  "name": "lotide",
+  "version": "1.0.0",
+  "description": "",
+  "main": "assertEqual.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/easydoesit/lotide.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/easydoesit/lotide/issues"
+  },
+  "homepage": "https://github.com/easydoesit/lotide#readme",
+  "dependencies": {
+    "node-emoji": "^1.11.0"
+  }
+}
