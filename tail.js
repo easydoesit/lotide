@@ -1,8 +1,8 @@
-const tail = function(array) {
-  if (array === undefined) {
+const tail = function(argsArray) {
+  if (argsArray === undefined) {
     return undefined;
   }
-  const tailArray = array.slice(1);
+  const tailArray = argsArray.slice(1);
   return tailArray;
 };
 
