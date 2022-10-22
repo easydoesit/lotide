@@ -1,5 +1,7 @@
+//eqArray Function takes two arrays and checks that they are equal
 const eqArrays = function(argsArray1, argsArray2) {
   let compare = true;
+  // count through the given array arguments and if there is anything that doesn't match up - return false
   for (let i in argsArray1) {
     if (argsArray1[i] !== argsArray2[i]) {
       compare = false;
@@ -8,7 +10,6 @@ const eqArrays = function(argsArray1, argsArray2) {
   }
   return compare;
 };
-
 
 //AssertEqual Implementation
 const assertEqual = function(actual, expected) {
@@ -29,12 +30,15 @@ const assertEqual = function(actual, expected) {
   }
 };
 
+//test case numbers
 console.log(assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true));
 console.log(assertEqual(eqArrays([1, 2, 3], [3, 2, 1]), true));
 
+//test case strings and numbers
 console.log(assertEqual(eqArrays(["1", "2", "3"], ["1", "2", "3"]), true));
 console.log(assertEqual(eqArrays(["1", "2", "3"], ["1", "2", 3]), true));
 
+//test case variables and strings
 const Tim = "Tim";
 const George = "George";
 const Bob = "Bob";
