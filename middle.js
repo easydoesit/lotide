@@ -25,6 +25,13 @@ const middle = function(argsArray) {
 //eqArray Function takes two arrays and checks that they are equal
 const eqArrays = function(argsArray1, argsArray2) {
   let compare = true;
+
+  // check to make sure they are arrays and not objects
+  if ((Object.prototype.toString.call(argsArray1) !== "[object Array]") || (Object.prototype.toString.call(argsArray1) !== "[object Array]")) {
+    compare = false;
+    return compare;
+  }
+  
   // check to see if arrays are empty
   if ((argsArray1.length === 0 && argsArray2.length > 0) || (argsArray1.length > 0 && argsArray2.length === 0)) {
     compare = false;
@@ -40,7 +47,7 @@ const eqArrays = function(argsArray1, argsArray2) {
   return compare;
 };
 
-//AssertEqual Implementation
+// Compare two numbers/strings and ensure they are the same.
 const assertEqual = function(actual, expected) {
   //emojies
   const emoji = require('node-emoji');
@@ -53,22 +60,22 @@ const assertEqual = function(actual, expected) {
 
   //comparison
   if (actual === expected) {
-    return `${successMessage} ${actual} === ${expected}`;
+    console.log(`${successMessage} ${actual} === ${expected}`);
   } else {
-    return `${errorMessage} ${actual} !== ${expected}`;
+    console.log(`${errorMessage} ${actual} !== ${expected}`);
   }
 };
 
 //tests
-console.log(assertEqual(eqArrays(middle([1]),[]),true));
-console.log(assertEqual(eqArrays(middle([1]),[1]),false));
-console.log(assertEqual(eqArrays(middle([1,2]),[]),true));
-console.log(assertEqual(eqArrays(middle([1,4]),[2]),false));
-console.log(assertEqual(eqArrays(middle([1,2,3]),[2]),true));
-console.log(assertEqual(eqArrays(middle([1,2,3]),[3]),false));
-console.log(assertEqual(eqArrays(middle(["Mic", "Tom", "Jer"]),["Tom"]),true));
-console.log(assertEqual(eqArrays(middle(["Mic", "Tom", "Jer"]),["Mic"]),false));
-console.log(assertEqual(eqArrays(middle([1,2,3,4,5,6]),[3,4]),true));
-console.log(assertEqual(eqArrays(middle([1,2,3,4,5,6]),[4,3]),false));
-console.log(assertEqual(eqArrays(middle(["Mic","Tom","Bri", "Bob", "Jer"]),["Bri"]),true));
-console.log(assertEqual(eqArrays(middle(["Mic","Tom","Bri", "Bob", "Jer"]),["Tom"]),false));
+assertEqual(eqArrays(middle([1]),[]),true);
+assertEqual(eqArrays(middle([1]),[1]),false);
+assertEqual(eqArrays(middle([1,2]),[]),true);
+assertEqual(eqArrays(middle([1,4]),[2]),false);
+assertEqual(eqArrays(middle([1,2,3]),[2]),true);
+assertEqual(eqArrays(middle([1,2,3]),[3]),false);
+assertEqual(eqArrays(middle(["Mic", "Tom", "Jer"]),["Tom"]),true);
+assertEqual(eqArrays(middle(["Mic", "Tom", "Jer"]),["Mic"]),false);
+assertEqual(eqArrays(middle([1,2,3,4,5,6]),[3,4]),true);
+assertEqual(eqArrays(middle([1,2,3,4,5,6]),[4,3]),false);
+assertEqual(eqArrays(middle(["Mic","Tom","Bri", "Bob", "Jer"]),["Bri"]),true);
+assertEqual(eqArrays(middle(["Mic","Tom","Bri", "Bob", "Jer"]),["Tom"]),false);

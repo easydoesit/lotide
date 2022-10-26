@@ -11,14 +11,12 @@ const assertEqual = function(actual, expected) {
 
   //comparison
   if (actual === expected) {
-    return `${successMessage} ${actual} === ${expected}`;
+    console.log(`${successMessage} ${actual} === ${expected}`);
   } else {
-    return `${errorMessage} ${actual} !== ${expected}`;
+    console.log(`${errorMessage} ${actual} !== ${expected}`);
   }
 };
 
-
-
 //Test Code
-console.log(assertEqual("Lighthouse Labs", "Bootcamp"));
-console.log(assertEqual(1,1));
+assertEqual("Lighthouse Labs", "Bootcamp");
+assertEqual(1,1);

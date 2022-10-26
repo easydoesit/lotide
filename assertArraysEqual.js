@@ -23,8 +23,8 @@ const eqArrays = function(argsArray1, argsArray2) {
   return compare;
 };
 
-// Compare two numbers/strings and ensure they are the same.
-const assertEqual = function(actual, expected) {
+//AssertEqual Implementation
+const assertArraysEqual = function(actual, expected) {
   //emojies
   const emoji = require('node-emoji');
   const alert = emoji.get('x');
@@ -35,7 +35,7 @@ const assertEqual = function(actual, expected) {
   const successMessage = pass + pass + pass + " Assertion Passed:";
 
   //comparison
-  if (actual === expected) {
+  if (eqArrays(actual, expected)) {
     console.log(`${successMessage} ${actual} === ${expected}`);
   } else {
     console.log(`${errorMessage} ${actual} !== ${expected}`);
@@ -43,12 +43,12 @@ const assertEqual = function(actual, expected) {
 };
 
 //test case numbers
-assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
-assertEqual(eqArrays([1, 2, 3], [3, 2, 1]), false);
+assertArraysEqual([1, 2, 3], [1, 2, 3]);
+assertArraysEqual([1, 2, 3], [3, 2, 1]);
 
 //test case strings and numbers
-assertEqual(eqArrays(["1", "2", "3"], ["1", "2", "3"]), true);
-assertEqual(eqArrays(["1", "2", "3"], ["1", "2", 3]), false);
+assertArraysEqual(["1", "2", "3"], ["1", "2", "3"]);
+assertArraysEqual(["1", "2", "3"], ["1", "2", 3]);
 
 //test case variables and strings
 const Tim = "Tim";
@@ -56,5 +56,6 @@ const George = "George";
 const Bob = "Bob";
 const Nik = "Nik";
 
-assertEqual(eqArrays(["Tim", "George", "Bob"], [Tim, George, Bob]), true);
-assertEqual(eqArrays(["Tim", "George", "Bob"], [Tim, George, Nik]), false);
+
+assertArraysEqual(["Tim", "George", "Bob"], [Tim, George, Bob]);
+assertArraysEqual(["Tim", "George", "Bob"], [Tim, George, Nik]);

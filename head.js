@@ -8,7 +8,7 @@ const head = function(argsArray) {
   return argsArray[0];
 };
 
-//Function Implementation
+// Compare two numbers/strings and ensure they are the same.
 const assertEqual = function(actual, expected) {
   //emojies
   const emoji = require('node-emoji');
@@ -21,13 +21,13 @@ const assertEqual = function(actual, expected) {
 
   //comparison
   if (actual === expected) {
-    return `${successMessage} ${actual} === ${expected}`;
+    console.log(`${successMessage} ${actual} === ${expected}`);
   } else {
-    return `${errorMessage} ${actual} !== ${expected}`;
+    console.log(`${errorMessage} ${actual} !== ${expected}`);
   }
 };
 
-console.log(assertEqual(head([5,6,7]),5));
-console.log(assertEqual(head(["Hello", "Lighthouse", "Labs"]),"Hello"));
-console.log(assertEqual(head(),5));
-console.log(assertEqual(head([5]),5));
+assertEqual(head([5,6,7]),5);
+assertEqual(head(["Hello", "Lighthouse", "Labs"]),"Hello");
+assertEqual(head(),5);
+assertEqual(head([5]),5);

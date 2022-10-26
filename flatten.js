@@ -38,7 +38,7 @@ const eqArrays = function(argsArray1, argsArray2) {
   return compare;
 };
 
-//AssertEqual Implementation
+// Compare two numbers/strings and ensure they are the same.
 const assertEqual = function(actual, expected) {
   //emojies
   const emoji = require('node-emoji');
@@ -51,12 +51,12 @@ const assertEqual = function(actual, expected) {
 
   //comparison
   if (actual === expected) {
-    return `${successMessage} ${actual} === ${expected}`;
+    console.log(`${successMessage} ${actual} === ${expected}`);
   } else {
-    return `${errorMessage} ${actual} !== ${expected}`;
+    console.log(`${errorMessage} ${actual} !== ${expected}`);
   }
 };
 
 //test cases
-console.log(assertEqual(eqArrays(flatten([1, 2, [3, 4], 5, [6]]), [1, 2, 3, 4, 5, 6]),true));
-console.log(assertEqual(eqArrays(flatten(["Im", "a", ["happy", "happy", "happy"], "dog"]),["Im", "a", "happy", "happy", "happy", "dog"]), true));
+assertEqual(eqArrays(flatten([1, 2, [3, 4], 5, [6]]), [1, 2, 3, 4, 5, 6]),true);
+assertEqual(eqArrays(flatten(["Im", "a", ["happy", "happy", "happy"], "dog"]),["Im", "a", "happy", "happy", "happy", "dog"]), true);
