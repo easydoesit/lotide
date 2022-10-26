@@ -1,3 +1,22 @@
+// Compare two arrays and log whether they are equal or not.
+const assertArraysEqual = function(actual, expected) {
+  //emojies
+  const emoji = require('node-emoji');
+  const alert = emoji.get('x');
+  const pass = emoji.get('white_check_mark');
+  
+  //messages
+  const errorMessage = alert + alert + alert + " Assertion Failed:";
+  const successMessage = pass + pass + pass + " Assertion Passed:";
+
+  //comparison
+  if (eqArrays(actual, expected)) {
+    console.log(`${successMessage} ${actual} === ${expected}`);
+  } else {
+    console.log(`${errorMessage} ${actual} !== ${expected}`);
+  }
+};
+
 //eqArray Function takes two arrays and checks that they are equal
 const eqArrays = function(argsArray1, argsArray2) {
   let compare = true;
@@ -21,25 +40,6 @@ const eqArrays = function(argsArray1, argsArray2) {
     }
   }
   return compare;
-};
-
-//AssertEqual Implementation
-const assertArraysEqual = function(actual, expected) {
-  //emojies
-  const emoji = require('node-emoji');
-  const alert = emoji.get('x');
-  const pass = emoji.get('white_check_mark');
-  
-  //messages
-  const errorMessage = alert + alert + alert + " Assertion Failed:";
-  const successMessage = pass + pass + pass + " Assertion Passed:";
-
-  //comparison
-  if (eqArrays(actual, expected)) {
-    console.log(`${successMessage} ${actual} === ${expected}`);
-  } else {
-    console.log(`${errorMessage} ${actual} !== ${expected}`);
-  }
 };
 
 //test case numbers

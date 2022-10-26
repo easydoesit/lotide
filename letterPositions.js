@@ -1,3 +1,21 @@
+// return the positions of letters in a string ignoring spaces
+const letterPositions = function(sentence) {
+  const results = {};
+
+  const noSpaceString = sentence.replace(/ /g, "");
+
+  for (let i = 0; i < noSpaceString.length; i++) {
+    if (results[noSpaceString[i]]) {
+      results[noSpaceString[i]].push(i);
+    } else {
+      results[noSpaceString[i]] = [];
+      results[noSpaceString[i]].push(i);
+    }
+  }
+
+  return results;
+};
+
 //eqArray Function takes two arrays and checks that they are equal
 const eqArrays = function(argsArray1, argsArray2) {
   let compare = true;
@@ -23,7 +41,7 @@ const eqArrays = function(argsArray1, argsArray2) {
   return compare;
 };
 
-//AssertEqual Implementation
+// Take two arrays and compare them.
 const assertArraysEqual = function(actual, expected) {
   //emojies
   const emoji = require('node-emoji');
@@ -42,10 +60,5 @@ const assertArraysEqual = function(actual, expected) {
   }
 };
 
-const letterPositions = function(sentence) {
-  const results = {};
-
-  return results;
-};
-
-assertArraysEqual(eqArrays(letterPositions("hello"), [[0],[1],[2, 3],[4]]),true);
+assertArraysEqual(letterPositions("hello").e,[1]);
+assertArraysEqual(letterPositions("hello").l, [2,3]);
