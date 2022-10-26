@@ -21,8 +21,8 @@ const countLetters = function(stringValue) {
   const result = {};
   const noSpaceString = stringValue.replace(/ /g, "");
 
-  for (let i in noSpaceString) {
-    let letter = noSpaceString[i];
+  for (let letter of noSpaceString) {
+    
     if (result[letter]) {
       result[letter] += 1;
     } else {
