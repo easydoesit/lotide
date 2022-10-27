@@ -1,13 +1,8 @@
 // Compare two arrays and log whether they are equal or not.
 const assertArraysEqual = function(actual, expected) {
-  //emojies
-  const emoji = require('node-emoji');
-  const alert = emoji.get('x');
-  const pass = emoji.get('white_check_mark');
-  
   //messages
-  const errorMessage = alert + alert + alert + " Assertion Failed:";
-  const successMessage = pass + pass + pass + " Assertion Passed:";
+  const errorMessage = "🔴🔴🔴 Assertion Failed:";
+  const successMessage = "✅✅✅ Assertion Passed:";
 
   //comparison
   if (eqArrays(actual, expected)) {

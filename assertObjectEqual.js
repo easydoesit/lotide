@@ -1,8 +1,23 @@
+// Takes two objects and compares them, output to the console.
+const assertObjectEqual = function(actual, expected) {
+  //messages
+  const errorMessage = "🔴🔴🔴 Assertion Failed:";
+  const successMessage = "✅✅✅ Assertion Passed:";
+
+  const inspect = require('util').inspect;
+  if (eqObjects(actual, expected)) {
+    console.log(`${successMessage} ${inspect(actual)} === ${inspect(expected)}`);
+  } else {
+    console.log(`${errorMessage} ${inspect(actual)} !== ${inspect(expected)}`);
+  }
+
+};
+
 
 // Returns true if both objects have identical keys with identical values.
 // Otherwise you get back a big fat false!
 const eqObjects = function(object1, object2) {
-  //compare the objects sizes
+  // compare the objects sizes
   if (Object.keys(object1).length !== Object.keys(object2).length) {
     return false;
   }
@@ -10,7 +25,7 @@ const eqObjects = function(object1, object2) {
   for (let key of Object.keys(object1)) {
     // if the value is an array
     if (Array.isArray(object1[key])) {
-      // if the arrays are different
+      // if the arrays are differints
       if (!eqArrays(object1[key], object2[key])) {
         return false;
       }
@@ -21,23 +36,13 @@ const eqObjects = function(object1, object2) {
   return true;
 };
 
-// Compare two numbers/strings and ensure they are the same.
-const assertEqual = function(actual, expected) {
-
-  //messages
-  const errorMessage = "🔴🔴🔴 Assertion Failed:";
-  const successMessage = "✅✅✅ Assertion Passed:";
-
-  //comparison
-  if (actual === expected) {
-    console.log(`${successMessage} ${actual} === ${expected}`);
-  } else {
-    console.log(`${errorMessage} ${actual} !== ${expected}`);
-  }
-};
-
 //eqArray Function takes two arrays and checks that they are equal
 const eqArrays = function(argsArray1, argsArray2) {
+
+  // check to see that they are not underfined
+  if (argsArray1 === undefined || argsArray2 === undefined) {
+    return false;
+  }
 
   // check to make sure they are arrays and not objects
   if ((Object.prototype.toString.call(argsArray1) !== "[object Array]") || (Object.prototype.toString.call(argsArray1) !== "[object Array]")) {
@@ -64,18 +69,7 @@ const eqArrays = function(argsArray1, argsArray2) {
   return true;
 };
 
-const ab = { a: "1", b: "2" };
-const ba = { b: "2", a: "1" };
-assertEqual(eqObjects(ab, ba), true); // => true
-
-const abc = { a: "1", b: "2", c: "3" };
-assertEqual(eqObjects(ab, abc), false); // => false
-
-const cd = { c: "1", d: ["2", 3] };
-const dc = { d: ["2", 3], c: "1" };
-assertEqual(eqObjects(cd, dc), true); // => true
-
-const cd2 = { c: "1", d: ["2", 3, 4] };
-assertEqual(eqObjects(cd, cd2), false); // => false
-
-assertEqual(eqObjects({a: "1", b: "2", c:[1]}, {a: "1", b: "2", c:[2]}), false);
+assertObjectEqual({},{});
+assertObjectEqual({Name: "Mike", Age: 45}, {Name: "Sandra", Age: 44});
+assertObjectEqual({Famil: ["Michael", "Sandra", "Isaiah", "Juno"]}, {Family: ["Michael", "Sandra", "Isaiah", "Juno"]});
+assertObjectEqual({Family: ["Michael", "Sandra", "Isaiah", "Juno"], friends: ["Alex", "Jina", "Corey", "Sam"]}, {Family: ["Michael", "Sandra", "Isaiah", "Juno"], friends: ["Alex", "Jina", "Corey", "Sam"]});

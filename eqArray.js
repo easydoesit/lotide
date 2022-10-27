@@ -1,6 +1,11 @@
 //eqArray Function takes two arrays and checks that they are equal
 const eqArrays = function(argsArray1, argsArray2) {
 
+  // check to see that they are not underfined
+  if (argsArray1 === undefined || argsArray2 === undefined) {
+    return false;
+  }
+
   // check to make sure they are arrays and not objects
   if ((Object.prototype.toString.call(argsArray1) !== "[object Array]") || (Object.prototype.toString.call(argsArray1) !== "[object Array]")) {
     return false;
