@@ -13,26 +13,26 @@ const assertArraysEqual = function(actual, expected) {
 };
 
 //eqArray Function takes two arrays and checks that they are equal
-const eqArrays = function(argsArray1, argsArray2) {
+const eqArrays = function(actual, expected) {
 
-  // check to make sure they are arrays and not objects
-  if ((Object.prototype.toString.call(argsArray1) !== "[object Array]") || (Object.prototype.toString.call(argsArray1) !== "[object Array]")) {
+  // check to see that they are not underfined
+  if (actual === undefined || expected === undefined) {
     return false;
   }
 
-  // check to see if arrays are empty
-  if ((argsArray1.length === 0 && argsArray2.length > 0) || (argsArray1.length > 0 && argsArray2.length === 0)) {
+  // check to make sure they are arrays and not objects
+  if ((Object.prototype.toString.call(actual) !== "[object Array]") || (Object.prototype.toString.call(actual) !== "[object Array]")) {
     return false;
   }
 
   // check to see if their lengths are equal
-  if (argsArray1.length !== argsArray2.length) {
+  if (actual.length !== expected.length) {
     return false;
   }
 
   // count through the given array arguments and if there is anything that doesn't match up - return false
-  for (let i in argsArray1) {
-    if (argsArray1[i] !== argsArray2[i]) {
+  for (let i in actual) {
+    if (actual[i] !== expected[i]) {
       return false;
     }
   }
