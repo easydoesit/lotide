@@ -1,4 +1,4 @@
-const tail = require("../tail.js");
+const tail = require("../tail");
 const assertEqual = require("../assertEqual");
 
 // Test Case 1. Did the tail function work as planned?
