@@ -5,6 +5,7 @@ const assertObjectEqual = function(actual, expected) {
   const successMessage = "✅✅✅ Assertion Passed:";
 
   const inspect = require('util').inspect;
+  
   if (eqObjects(actual, expected)) {
     console.log(`${successMessage} ${inspect(actual)} === ${inspect(expected)}`);
   } else {
