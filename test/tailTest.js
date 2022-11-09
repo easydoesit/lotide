@@ -1,17 +1,22 @@
+const assert = require('chai').assert;
 const tail = require("../tail");
-const assertEqual = require("../assertEqual");
 
-// Test Case 1. Did the tail function work as planned?
-const result = tail(["Hello", "Lighthouse", "Labs"]);
-console.log("length? " + assertEqual(result.length,2));
-console.log("Element 1? " + assertEqual(result[0], "Lighthouse"));
-console.log("Element 2?" + assertEqual(result[1], "Labs"));
-const single = tail([1]);
-console.log("Single Array?" + assertEqual(single.length, 0));
-const empty = tail([]);
-console.log("Empty Array?" + assertEqual(empty.length, 0));
+describe("#tail", () => {
 
-// Test Case 2. Did we keep the original array?
-const words = ["Yo Yo", "lighthouse", "Labs"];
-tail(words);
-console.log("Original Array?" + assertEqual(words.length, 3));
+  it("returns ['Lighthouse', 'Labs'] for ['Hello', 'Lighthouse', 'Labs']", () => {
+    assert.deepEqual(tail(["Hello", "Lighthouse", "Labs"]), ["Lighthouse", "Labs"]);
+  });
+
+  it('returns [] for [1]', () => {
+    assert.deepEqual(tail([1]), []);
+  });
+
+  it('returns [] for []', () => {
+    assert.deepEqual(tail([]), []);
+  });
+
+  it('returns  [["me", "and"] ["me", ["and", "me"]] for ["not me", ["me", "and"] ["me", ["and", "me"]]]', ()=> {
+    assert.deepEqual(tail(["not me", ["me", "and"] ["me", ["and", "me"]]]), [["me", "and"] ["me", ["and", "me"]]]);
+  });
+
+});

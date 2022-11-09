@@ -1,17 +1,30 @@
+const assert = require('chai').assert;
 const middle = require("../middle");
-const eqArrays = require("../eqArrays");
-const assertEqual = require("../assertEqual");
 
-//tests
-assertEqual(eqArrays(middle([1]),[]),true);
-assertEqual(eqArrays(middle([1]),[1]),false);
-assertEqual(eqArrays(middle([1,2]),[]),true);
-assertEqual(eqArrays(middle([1,4]),[2]),false);
-assertEqual(eqArrays(middle([1,2,3]),[2]),true);
-assertEqual(eqArrays(middle([1,2,3]),[3]),false);
-assertEqual(eqArrays(middle(["Mic", "Tom", "Jer"]),["Tom"]),true);
-assertEqual(eqArrays(middle(["Mic", "Tom", "Jer"]),["Mic"]),false);
-assertEqual(eqArrays(middle([1,2,3,4,5,6]),[3,4]),true);
-assertEqual(eqArrays(middle([1,2,3,4,5,6]),[4,3]),false);
-assertEqual(eqArrays(middle(["Mic","Tom","Bri", "Bob", "Jer"]),["Bri"]),true);
-assertEqual(eqArrays(middle(["Mic","Tom","Bri", "Bob", "Jer"]),["Tom"]),false);
+describe('#middle', () => {
+  
+  it('returns [] for [1]', () => {
+    assert.deepEqual(middle([1]), []);
+  });
+  
+  it('returns [] for [1,2]', () => {
+    assert.deepEqual(middle([1,2]), []);
+  });
+
+  it('returns [2] for [1,2,3]', () => {
+    assert.deepEqual(middle([1,2,3]), [2]);
+  });
+
+  it('returns ["Tom"] for ["Mic", "Tom, "Jer"]', () => {
+    assert.deepEqual(middle(["Mic", "Tom", "Jer"]), ["Tom"]);
+  });
+
+  it('returns [3,4] for [1,2,3,4,5,6]', () => {
+    assert.deepEqual(middle([1,2,3,4,5,6]), [3,4]);
+  });
+
+  it('returns ["Bri"] for ["Mic","Tom","Bri", "Bob", "Jer"]', () => {
+    assert.deepEqual(middle(["Mic","Tom","Bri", "Bob", "Jer"]), ["Bri"]);
+  });
+
+});
