@@ -38,4 +38,4 @@ const assertEqual = function(actual, expected) {
 assertEqual(countLetters("a bb ccc").a, 1);
 assertEqual(countLetters("This could be a useful function").u, 4);
 
-module.export = countLetters;
+module.exports = countLetters;
