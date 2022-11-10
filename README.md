@@ -26,8 +26,17 @@ This project was created and published by me as part of my learnings at Lighthou
 
 The following functions are currently implemented:
 
-* `head(array)`: get the first index of an array
+* `countLetters(string)`:count Letters in a string ignoring spaces
+* `countOnly(array of strings, object specifying what to count)`: Counts all the items that correspond to the items in the object.
+* `eqArrays(arrayActual, arrayExpected)`: takes two arrays and checks that they are equal
+* `eqObjects(object1, object2)`:Returns true if both objects have identical keys with identical values.
+* `findKey(obj, callback)`:findKey takes in an object and a callback, returns the first that returns true.
+* `findKeyByValue(object, value)`: scans the object and returns the first key which contains the value.
+* `flatten(array)`: flatten function takes in 1 array with any level of nesting and returns a new flat array.
+* `head(array)`: get the first index of an array.
+* `letterPositions(string)`: return the positions of letters in a string ignoring spaces.
+* `map(array, callback)`:in an array and any other callback argument. It performs the callback on the full array.
+* `middle(array)`: takes in an array and returns the middle indexes.
 * `tail(array)`: get all the array indexes after 0.
-* `middle(array)`: takes in an array and returns the middle indexes
-* `countLetters(string)`: countLetters in a string ignoring spaces
-* `without(sourceArray, itemsToRemoveArray)`: takes an Array in the first argument and the items to be removed as the second argument
+* `takeUntil(array, callback)`: eturn the slice of an array with the elements taken from the beginning, until callback/predicate is true
+* `without(sourceArray, itemsToRemoveArray)`: takes an Array in the first argument .and the items to be removed as the second argument.

@@ -1,4 +1,4 @@
-// return the slice of an arry with the elements taken from the beginning, until callback/predicate is true
+// return the slice of an array with the elements taken from the beginning, until callback/predicate is true
 const takeUntil = function(array, callback) {
   let stopIndex = 0;
   
