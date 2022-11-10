@@ -13,7 +13,7 @@ describe("#eqObjects", () => {
   });
 
   const abc = { a: "1", b: "2", c: "3" };
-  
+  /* TODO CHECK ARRAYS
   it('returns false for { a: "1", b: "2" }, { a: "1", b: "2", c: "3" }', () => {
     assert.deepEqual(eqObjects(ab, abc), false);
   });
@@ -28,5 +28,26 @@ describe("#eqObjects", () => {
   it('returns false for {a: "1", b: "2", c:[1]}, {a: "1", b: "2", c:[2]}', () => {
     assert.deepEqual(eqObjects(ab, abc), false);
   });
+*/
+  it(`returns true for { a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }`, () => {
+    assert.deepEqual(eqObjects({ a: { z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), true);
+  });
+
+  it(`returns false for { a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }`, () => {
+    assert.deepEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: { z: 1 }, b: 2 }), false);
+  });
+
+  it(`returns false for { a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }`, () => {
+    assert.deepEqual(eqObjects({ a: { y: 0, z: 1 }, b: 2 }, { a: 1, b: 2 }), false);
+  });
+  /* TODO CHECK ARRAYS.
+  it(`returns true for { a: { z: [1,2,3] }, b: 2 }, { a: { z: [1,2,3] }, b: 2 }`, () => {
+    assert.deepEqual(eqObjects({ a: { z: [1,2,3] }, b: 2 }, { a: { z: [1,2,3] }, b: 2 }), true);
+  });
+
+  it(`returns true for { a: { z: [1,2,3] }, b: 2 }, { a: { z: [1,2,3] }, b: 2 }`, () => {
+    assert.deepEqual(eqObjects({ a: { z: [[{a: 1},{b: 2}],2,3] }, b: 2 }, { a: { z: [[{a: 1},{b: 2}],2,3] }, b: 2 }), true);
+  });
+*/
 
 });
