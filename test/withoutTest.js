@@ -1,5 +1,6 @@
-const assert = require('chai').assert;
 const without = require("../without");
+const assert = require('chai').assert;
+
 
 // mocha tests
 describe("#without", () => {

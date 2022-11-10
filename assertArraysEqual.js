@@ -1,29 +1,22 @@
-//eqArray Function takes two arrays and checks that they are equal
-const eqArrays = function(actual, expected) {
+const eqArrays = require("./eqArrays");
 
-  // check to see that they are not underfined
-  if (actual === undefined || expected === undefined) {
-    return false;
-  }
+//AssertEqual Implementation
+const assertArraysEqual = function(actual, expected) {
+  //emojies
+  const emoji = require('node-emoji');
+  const alert = emoji.get('x');
+  const pass = emoji.get('white_check_mark');
 
-  // check to make sure they are arrays and not objects
-  if ((Object.prototype.toString.call(actual) !== "[object Array]") || (Object.prototype.toString.call(actual) !== "[object Array]")) {
-    return false;
-  }
+  //messages
+  const errorMessage = alert + alert + alert + " Assertion Failed:";
+  const successMessage = pass + pass + pass + " Assertion Passed:";
 
-  // check to see if their lengths are equal
-  if (actual.length !== expected.length) {
-    return false;
+  //comparison
+  if (eqArrays(actual, expected)) {
+    console.log(`${successMessage} ${actual} === ${expected}`);
+  } else {
+    console.log(`${errorMessage} ${actual} !== ${expected}`);
   }
-
-  // count through the given array arguments and if there is anything that doesn't match up - return false
-  for (let i in actual) {
-    if (actual[i] !== expected[i]) {
-      return false;
-    }
-  }
-  
-  return true;
 };
 
-module.exports = eqArrays;
+module.exports = assertArraysEqual;

@@ -1,19 +1,36 @@
 const eqArrays = require("../eqArrays");
-const assertEqual = require("../assertEqual");
+const assert = require('chai').assert;
 
-//test case numbers
-assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
-assertEqual(eqArrays([1, 2, 3], [3, 2, 1]), false);
+// mocha tests
+describe("#without", () => {
+  it("returns true for [1, 2, 3], [1, 2, 3]", () => {
+    assert.deepEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
+  });
 
-//test case strings and numbers
-assertEqual(eqArrays(["1", "2", "3"], ["1", "2", "3"]), true);
-assertEqual(eqArrays(["1", "2", "3"], ["1", "2", 3]), false);
+  it("returns false for [1, 2, 3], [1, 2, 3]", () => {
+    assert.deepEqual(eqArrays([1, 2, 3], [3, 2, 1]), false);
+  });
 
-//test case variables and strings
-const Tim = "Tim";
-const George = "George";
-const Bob = "Bob";
-const Nik = "Nik";
+  it("returns true for ['1', '2', '3'], ['1', '2', '3']", () => {
+    assert.deepEqual(eqArrays(["1", "2", "3"], ["1", "2", "3"]), true);
+  });
 
-assertEqual(eqArrays(["Tim", "George", "Bob"], [Tim, George, Bob]), true);
-assertEqual(eqArrays(["Tim", "George", "Bob"], [Tim, George, Nik]), false);
+  it("returns false for [1, 2, 3], [1, 2, 3]", () => {
+    assert.deepEqual(eqArrays(["1", "2", "3"], ["1", "2", 3]), false);
+  });
+
+  const Tim = "Tim";
+  const George = "George";
+  const Bob = "Bob";
+  const Nik = "Nik";
+
+  it("returns true for ['Tim', 'George', 'Bob'], [Tim, George, Bob]", () => {
+    assert.deepEqual(eqArrays(["Tim", "George", "Bob"], [Tim, George, Bob]), true);
+  });
+
+  it("returns false for ['Tim', 'George', 'Bob'], [Tim, George, Nik]", () => {
+    assert.deepEqual(eqArrays(["Tim", "George", "Bob"], [Tim, George, Nik]), false);
+  });
+
+
+});
