@@ -22,7 +22,9 @@ const eqObjects = function(object1, object2) {
         if (!eqArrays(object1[key], object2[key])) {
           check = false;
         }
-      } else */ if (Object.prototype.toString.call(object1[key]) === "[object Object]") {
+      } else */
+      
+      if (Object.prototype.toString.call(object1[key]) === "[object Object]") {
         compareObjects(object1[key], object2[key]);
 
       } else if (object1[key] !== object2[key]) {
